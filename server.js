@@ -38,11 +38,24 @@ if(process.env.NODE_ENV === 'production')
     //  app.get('/' , (req, res)=>{
     //      res.sendFile(resolve(__dirname, 'client/build/index.html'))
     //  })
-    app.use(express.static("client/build"))
+    try{
+      app.use(express.static("client/build"))
 
-    app.get("* ", (req, res) => {
+      app.get("* ", (req, res) => {
+        // res.send('Hi');
         res.sendFile(resolve(__dirname, "client", "build", "index.html"))
-    });
+      });
+
+    }
+    catch(err){
+      console.log(err);
+    }
+    // app.use(express.static("client/build"))
+
+    // app.get("* ", (req, res) => {
+    //   // res.send('Hi');
+    //   res.sendFile(resolve(__dirname, "client", "build", "index.html"))
+    // });
 }
 
 

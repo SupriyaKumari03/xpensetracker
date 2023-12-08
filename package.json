@@ -9,7 +9,7 @@
   },
   "scripts": {
     "client-install": "npm install --prefix client",
-    "server": "nodemon server.js --ignore './client/'",
+    "server": "node server.js --ignore './client/'",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "node server.js",
@@ -21,10 +21,8 @@
     "express": "^4.18.2",
     "moment": "^2.29.3",
     "mongoose": "^6.12.3",
-    "nodemon": "^3.0.2"
-  },
-  "type": "module",
-  "devDependencies": {
+    "nodemon": "^3.0.2",
     "concurrently": "^8.2.2"
-  }
+  },
+  "type": "module"
 }
