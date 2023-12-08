@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url';
 // import { connect, connection as _connection } from 'mongoose'
 // const mongoose = require("mongoose");
 import mongoose from 'mongoose';
+mongoose.set('strictQuery', true);
 mongoose
 .connect('mongodb+srv://supriyakumari82982:Supriya@cluster0.vcsphac.mongodb.net/xpense-tracker' , {useNewUrlParser : true , useUnifiedTopology : true})
   .then(() => {
