@@ -5,8 +5,6 @@ import { resolve ,dirname } from 'path'
 import userRoute from './routes/usersRoute.js'
 import transactionsRoute  from './routes/transactionsRoute.js'
 import { fileURLToPath } from 'node:url';
-// import { connect, connection as _connection } from 'mongoose'
-// const mongoose = require("mongoose");
 import mongoose from 'mongoose';
 mongoose.set('strictQuery', true);
 mongoose
@@ -15,12 +13,6 @@ mongoose
     console.log("Mongo DB connection successful");
   })
   .catch((err) => console.log(err));
-
-// const connection = _connection
-
-// connection.on('error', err => console.log(err))
-
-// connection.on('connected' , () => console.log('Mongo DB Connection Successfull'))
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -42,7 +34,6 @@ if(process.env.NODE_ENV === 'production')
       app.use(express.static("client/build"))
 
       app.get("* ", (req, res) => {
-        // res.send('Hi');
         res.sendFile(resolve(__dirname, "client", "build", "index.html"))
       });
 
@@ -50,14 +41,5 @@ if(process.env.NODE_ENV === 'production')
     catch(err){
       console.log(err);
     }
-    // app.use(express.static("client/build"))
-
-    // app.get("* ", (req, res) => {
-    //   // res.send('Hi');
-    //   res.sendFile(resolve(__dirname, "client", "build", "index.html"))
-    // });
 }
-
-
-
 app.listen(port, () => console.log(`Node JS Server started at port ${port}!`))
